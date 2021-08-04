@@ -27,7 +27,7 @@ namespace Classes
                     }
                     case "stop":
                     {
-                        if (stopWatch.running == true)
+                        if (stopWatch.running)
                         {
                             stopWatch.stopTime = DateTime.Now;
                             stopWatch.running = false;
