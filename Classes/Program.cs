@@ -1,15 +1,44 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Classes
 {
     class Program
     {
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
+            StopWatch stopWatch = new StopWatch();
+            string input;
+
+            input = Console.ReadLine();
+
+            do
+            {
+                switch (input)
+                {
+                    case "start":
+                    {
+                        if (stopWatch.running != true)
+                        {
+                            stopWatch.startTime = DateTime.Now;
+                            stopWatch.running = true;
+                        }
+
+                        break;
+                    }
+                    case "stop":
+                    {
+                        if (stopWatch.running == true)
+                        {
+                            stopWatch.stopTime = DateTime.Now;
+                            stopWatch.running = false;
+                            Console.WriteLine(stopWatch.stopTime - stopWatch.startTime);
+                        }
+
+                        break;
+                    }
+                }
+                input = Console.ReadLine();
+            } while (input.ToLower() != "close");
         }
     }
 }
